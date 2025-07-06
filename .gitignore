@@ -1,0 +1,5 @@
+.idea/
+venv/
+menu/
+*.env
+main.py
