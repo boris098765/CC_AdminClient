@@ -1,7 +1,7 @@
 from ..api_response import ApiResponse
 
 
-class ModelPricingEndpoint:
+class ModelPricingsEndpoint:
     def __init__(self, client):
         self.client = client
 
@@ -50,14 +50,14 @@ class ModelPricingEndpoint:
         )
 
     def delete(self,
-            model_pricing_id:int = None
+            model_pricing_id:int
     ) -> ApiResponse:
         return self.client.request("/model_pricing/delete",
            model_pricing_id = model_pricing_id
         )
 
     def delete_by_model(self,
-            model_id:int = None
+            model_id:int
     ) -> ApiResponse:
         return self.client.request("/model_pricing/delete/by_model",
            model_id = model_id

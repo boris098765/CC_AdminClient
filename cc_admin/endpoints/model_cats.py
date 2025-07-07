@@ -1,7 +1,7 @@
 from ..api_response import ApiResponse
 
 
-class ModelCatEndpoint:
+class ModelCatsEndpoint:
     def __init__(self, client):
         self.client = client
 
