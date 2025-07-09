@@ -17,6 +17,13 @@ class PermissionsEndpoint:
     def get_all(self) -> ApiResponse:
         return self.client.request("/permission/get/all")
 
+    def get_roles(self,
+            permission_id:int
+    ) -> ApiResponse:
+        return self.client.request("/permission/get/roles",
+            permission_id = permission_id
+        )
+
     def create(self,
             name:str
     ) -> ApiResponse:

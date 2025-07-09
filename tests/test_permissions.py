@@ -20,6 +20,14 @@ class TestPermissionsAPI:
         assert response.success == True, f"Request failed. Error: {response.error}"
         permission_id = response.data['id']
 
+        # GET PERMISSION'S ROLES 1
+        response = client.permissions.get_roles(
+            permission_id = permission_id
+        )
+        assert response.success == True, f"Request failed. Error: {response.error}"
+        roles = response.data
+        assert len(roles) == 0
+
         # GET ALL 2
         response = client.permissions.get_all()
         assert response.success == True, f"Request failed. Error: {response.error}"
@@ -96,6 +104,16 @@ class TestPermissionsAPI:
         assert response.success == True, f"Request failed. Error: {response.error}"
         assert response.data == True
 
+        # GET PERMISSION'S ROLES 2
+        response = client.permissions.get_roles(
+            permission_id=permission_id
+        )
+        assert response.success == True, f"Request failed. Error: {response.error}"
+        roles = response.data
+        assert len(roles) == 1
+        assert roles[0]['id'] == role_id
+        assert roles[0]['name'] == test_role_name
+
         # REVOKE PERMISSION
         response = client.permissions.revoke(
             role_id = role_id,
@@ -110,6 +128,14 @@ class TestPermissionsAPI:
         )
         assert response.success == True, f"Request failed. Error: {response.error}"
         assert response.data == False
+
+        # GET PERMISSION'S ROLES 3
+        response = client.permissions.get_roles(
+            permission_id = permission_id
+        )
+        assert response.success == True, f"Request failed. Error: {response.error}"
+        roles = response.data
+        assert len(roles) == 0
 
         # DELETE TEST USER
         response = client.users.delete(
