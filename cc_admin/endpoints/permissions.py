@@ -25,20 +25,20 @@ class PermissionsEndpoint:
         )
 
     def delete(self,
-            role_id:int = None,
+            permission_id:int = None,
             name:str = None
     ) -> ApiResponse:
         return self.client.request("/permission/delete",
-            role_id = role_id,
+            permission_id = permission_id,
             name = name
         )
 
     def edit(self,
-            role_id:int,
+            permission_id:int,
             name:str
     ) -> ApiResponse:
         return self.client.request("/permission/edit",
-            role_id = role_id,
+            permission_id = permission_id,
             name = name
         )
 
