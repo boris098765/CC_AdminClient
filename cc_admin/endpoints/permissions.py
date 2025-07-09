@@ -53,7 +53,7 @@ class PermissionsEndpoint:
 
     def grant(self,
             role_id:int,
-            permission_id:str
+            permission_id:int
     ) -> ApiResponse:
         return self.client.request("/permission/grant",
             role_id = role_id,
@@ -62,7 +62,7 @@ class PermissionsEndpoint:
 
     def revoke(self,
             role_id:int,
-            permission_id:str
+            permission_id:int
     ) -> ApiResponse:
         return self.client.request("/permission/revoke",
             role_id = role_id,

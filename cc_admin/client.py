@@ -48,4 +48,5 @@ class CCAPIClient:
 
         if code == 200:
             return ApiResponse.success(data['data'])
+
         return ApiResponse.error(data['error'])
