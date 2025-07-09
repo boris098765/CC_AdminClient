@@ -19,6 +19,22 @@ class TestRolesAPI:
         assert response.success == True, f"Request failed. Error: {response.error}"
         role_id = response.data['id']
 
+        # GET ROLE'S USERS 1
+        response = client.roles.get_users(
+            role_id = role_id
+        )
+        assert response.success == True, f"Request failed. Error: {response.error}"
+        users = response.data
+        assert len(users) == 0
+
+        # GET ROLE'S PERMISSIONS 1
+        response = client.roles.get_permissions(
+            role_id=role_id
+        )
+        assert response.success == True, f"Request failed. Error: {response.error}"
+        permissions = response.data
+        assert len(permissions) == 0
+
         # GET ALL 2
         response = client.roles.get_all()
         assert response.success == True, f"Request failed. Error: {response.error}"
@@ -68,6 +84,14 @@ class TestRolesAPI:
             role_id = role_id
         )
         assert response.success == True, f"Request failed. Error: {response.error}"
+
+        # GET ROLE'S USERS 2
+        response = client.roles.get_users(
+            role_id=role_id
+        )
+        assert response.success == True, f"Request failed. Error: {response.error}"
+        users = response.data
+        assert len(users) == 1
 
         # GET USER
         response = client.users.get(

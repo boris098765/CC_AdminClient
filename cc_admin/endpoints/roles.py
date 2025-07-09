@@ -14,6 +14,20 @@ class RolesEndpoint:
             name = name
         )
 
+    def get_users(self,
+            role_id:int
+    ) -> ApiResponse:
+        return self.client.request("/role/get/users",
+            role_id = role_id
+        )
+
+    def get_permissions(self,
+            role_id:int
+    ) -> ApiResponse:
+        return self.client.request("/role/get/permissions",
+            role_id = role_id
+        )
+
     def get_all(self) -> ApiResponse:
         return self.client.request("/role/get/all")
 
