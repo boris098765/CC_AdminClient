@@ -1,6 +1,6 @@
 import os
 
-from cc_admin_client.client import CCAPIClient
+from client import CCAPIClient
 from dotenv import load_dotenv
 
 

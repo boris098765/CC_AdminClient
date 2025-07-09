@@ -1,12 +1,11 @@
 import pytest
 import os
 from datetime import datetime
-from main_client import client as api_client
-
+import main_client
 
 @pytest.fixture
 def client():
-    return api_client
+    return main_client.client
 
 @pytest.fixture
 def get_test_role_name():
