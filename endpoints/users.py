@@ -35,7 +35,7 @@ class UsersEndpoint:
             name:str,
             role_id:int
     ) -> ApiResponse:
-        return self.client.request("/user/create/",
+        return self.client.request("/user/create",
             login   = login,
             name    = name,
             role_id = role_id
